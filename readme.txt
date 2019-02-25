@@ -1,5 +1,4 @@
 https://app.pluralsight.com/library/courses/algorithmics-introduction
 
-Querying... Done in 0.23 s
-Analyzing queries... Done in 123.35 s
-Handling tradings...  [9634 stocks] Done in 0.02 s
+Using List as Queue:
+Trading 200K stocks [200000 stocks] Done in 14.06
