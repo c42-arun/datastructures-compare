@@ -13,15 +13,15 @@ namespace Module3Before
             var analyzer = new InvestmentAnalyzer(stockTrader);
             var stopwatch = new Stopwatch();
 
-            // Highlight performance difference between List & LinkedList when used as queue
-            var q = CreateQuery();
-            stopwatch.Start();
-            Console.Write("Trading 200K stocks");
-            for (int i = 0; i < 200000; i++)
-                stockTrader.EnqueueStockForTrading(q);
-            stockTrader.HandledTradings();
-            Console.WriteLine($"Done in {Math.Round(stopwatch.Elapsed.TotalSeconds, 2)}");
-            Console.ReadLine();
+            //// Highlight performance difference between List & LinkedList when used as queue
+            //var q = CreateQuery();
+            //stopwatch.Start();
+            //Console.Write("Trading 200K stocks");
+            //for (int i = 0; i < 200000; i++)
+            //    stockTrader.EnqueueStockForTrading(q);
+            //stockTrader.HandledTradings();
+            //Console.WriteLine($"Done in {Math.Round(stopwatch.Elapsed.TotalSeconds, 2)}");
+            //Console.ReadLine();
 
             // Simulate queries:
             Console.Write("Querying... ");

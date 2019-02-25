@@ -12,7 +12,7 @@ namespace Module3Before
     class InvestmentAnalyzer
     {
         IStockTrader stockTrader;
-        List<InvestmentQuery> queries = new List<InvestmentQuery>();
+        C5.IntervalHeap<InvestmentQuery> queries = new C5.IntervalHeap<InvestmentQuery>();
         List<RatingCacheElement> stock2rating = new List<RatingCacheElement>();
         Random random = new Random(29);
 
@@ -31,7 +31,7 @@ namespace Module3Before
             while(queries.Count > 0)
             {
                 int rating;
-                var query = GetFirstPriority(queries); // Get first-priority queries first
+                var query = queries.DeleteMin(); // Get first-priority queries first
 
                 var cacheElement = stock2rating.Find(x => x.StockID == query.StockID);
                 if (cacheElement != null)
@@ -49,17 +49,17 @@ namespace Module3Before
             }
         }
 
-        private InvestmentQuery GetFirstPriority(List<InvestmentQuery> queries)
-        {
-            InvestmentQuery minQuery = null;
-            foreach(var query in queries)
-            {
-                if (minQuery == null || query.CompareTo(minQuery) < 0)
-                    minQuery = query;
-            }
-            queries.Remove(minQuery);
-            return minQuery;
-        }
+        //private InvestmentQuery GetFirstPriority(List<InvestmentQuery> queries)
+        //{
+        //    InvestmentQuery minQuery = null;
+        //    foreach(var query in queries)
+        //    {
+        //        if (minQuery == null || query.CompareTo(minQuery) < 0)
+        //            minQuery = query;
+        //    }
+        //    queries.Remove(minQuery);
+        //    return minQuery;
+        //}
 
         int CalculateRating(string stockID)
         {
