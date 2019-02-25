@@ -5,11 +5,11 @@ namespace Module3Before
 {
     class StockTrader : IStockTrader
     {
-        List<InvestmentQuery> stocksToTrade = new List<InvestmentQuery>();
+        LinkedList<InvestmentQuery> stocksToTrade = new LinkedList<InvestmentQuery>();
 
         public void EnqueueStockForTrading(InvestmentQuery query)
         {
-            stocksToTrade.Add(query);
+            stocksToTrade.AddLast(query);
         }
 
         public void HandledTradings()
@@ -17,10 +17,10 @@ namespace Module3Before
             Console.Write(" [{0} stocks] ", stocksToTrade.Count);
             while(stocksToTrade.Count > 0)
             {
-                var query = stocksToTrade[0];
+                var query = stocksToTrade.First;
                 // As this is simulation of a real service that consumes queries as they arrive,
                 // remember to remove the query from the list when processed: 
-                stocksToTrade.RemoveAt(0);
+                stocksToTrade.RemoveFirst();
                 
                 // Simulate stock trade:
 //                Thread.Sleep(100);
